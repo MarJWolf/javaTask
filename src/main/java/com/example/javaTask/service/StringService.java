@@ -2,13 +2,14 @@ package com.example.javaTask.service;
 
 import com.example.javaTask.data.StringData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StringService implements IStringService{
     @Override
     public List<String> findStrings( String keyWord)  {
 
-        List<String> strings = null;
+        List<String> strings = new ArrayList<>();
         StringData stringData =  StringData.getInstance();
 
         if(!keyWord.isEmpty()){
@@ -24,4 +25,5 @@ public class StringService implements IStringService{
 
         return strings;
     }
+
 }

@@ -8,18 +8,30 @@
     <link  rel = "stylesheet" href = "css/total.css" />
 </head>
 <body>
-<form action="ReadStrings" method="post">
+<div class="item">
+    <p> All data :
+        <c:forEach var="element" items="${requestScope.El}" >
+            "${element}"
+        </c:forEach>
+    </p>
+</div>
+<form action="ReadStringsServlet" method="get">
+    <div class="item">
+        <input type="submit" value="Edit Data">
+    </div>
+</form>
+<form action="ReadStringsServlet" method="post">
     <div class="item">
         <label for="recordsPerPage">Choose records per page : </label>
         <select id="recordsPerPage" name="recordsPerPage">
-            <c:forEach var="num" begin="1" end="${requestScope.numOfEl}" step="1">
+            <c:forEach var="num" begin="1" end="${requestScope.El.size()}" step="1">
                 <option value="${num}">${num}</option>
             </c:forEach>
         </select>
     </div>
     <div class="item">
-    <label for="chosenNumber">Choose page number for viewing : </label>
-    <input type="number" name="chosenNumber" id="chosenNumber" min="0" max="${requestScope.numOfEl}"/>
+    <label for="chosenPage">Choose page number for viewing : </label>
+    <input type="number" name="chosenPage" id="chosenPage" min="1" max="${requestScope.El.size()}" />
     </div>
     <div class="item">
     <label for="keyWord">Input key word for search : </label>
@@ -29,6 +41,5 @@
     <input type="submit" value="Search">
     </div>
 </form>
-</select>
 </body>
 </html>

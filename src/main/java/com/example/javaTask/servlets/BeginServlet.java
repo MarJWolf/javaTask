@@ -27,12 +27,8 @@ public class BeginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("numOfEl", stringData.getAll().size());
+        request.setAttribute("El", stringData.getAll());
         request.getRequestDispatcher("/pages/index.jsp").forward(request, response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }
